@@ -90,6 +90,24 @@ class App{
         
         this.controllers = this.buildControllers();
         
+        const self = this;
+        
+        function onSelectStart(){
+            this.children[0].scale.z = 10;
+            this.userData.selectPressed = true;
+        }
+        
+        function onSelectEnd(){
+            this.children[0].scale.z = 0;
+            self.highlight.visible = false;
+            this.userData.selectPressed = false;
+        }
+        
+        this.controllers.forEach( (controller) => {
+            controller.addEventListener( 'selectstart', onSelectStart );
+            controller.addEventListener( 'selectend', onSelectEnd );
+        });
+        
     }
     
     buildControllers(){
