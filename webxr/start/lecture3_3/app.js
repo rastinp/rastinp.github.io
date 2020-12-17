@@ -110,7 +110,7 @@ class App{
             controllers.push( controller );
             
             const grip = this.renderer.xr.getControllerGrip(i);
-            grid.add( controllerModelFactory.createControllerModel( grip ));
+            grip.add( controllerModelFactory.createControllerModel( grip ));
             this.scene.add( grip );
         }
         
