@@ -77,6 +77,10 @@ class App{
             this.room.add( object );
         }
         
+        this.highlight = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial({ color: 0xFFFFFF, side: THREE.BackSide }));
+        this.highlight.scale.set( 1.2, 1.2, 1.2 );
+        this.scene.add( this.highlight );
+        
     }
     
     setupXR(){
