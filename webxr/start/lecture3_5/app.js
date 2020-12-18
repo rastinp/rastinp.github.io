@@ -137,7 +137,28 @@ class App{
                 
                 loader.load('flash-light.glb',
                            (gltf) => {
-                    controller.add( gltf.scene );
+                    const flashLight = gltf.scene.children[2];
+                    const scale = 0.6;
+                    flashLight.scale.set( scale, scale, scale );
+                    controller.add( flashLight );
+                    self.spotlight = new THREE.Group();
+                    
+                    const spotlight = new THREE.SpotLight( 0xFFFFFF, 2, 12, Math.PI/15, 0.3 );
+                    spotlight.position.set(0,0,0);
+                    spotlight.target.position.set(0,0,-1);
+                    self.spotlight.add( spotlight.target );
+                    self.spotlight.add( spotlight );
+                    
+                    controller.add( self.spotlight );
+                    self.spotlight.visible = false;
+                    
+                    geometry = new THREE.CylinderBufferGeometry( 0.03, 1, 5, 32, true);
+                    geometry.rotateX( Math.PI/2 );
+                    material = new SpotLightVolumetricMaterial();
+                    const cone = new THREE.Mesh( geometry, material );
+                    cone.translateZ( -2.6 );
+                    self.spotlight.add( cone );
+                    
                 }),
                     null,
                     (error) => {
