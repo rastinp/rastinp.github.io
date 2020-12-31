@@ -120,6 +120,12 @@ class App{
     }
     
     addConstraint(pos, body){
+        const pivot = pos.clone();
+        body.threemesh.worldToLocal( pivot );
+        this.jointBody.position.copy(pos);
+        
+        const constraint = new CANNON.PointToPointConstraint( body, pivot, this.jointBody, new CANNON.Vec3(0,0,0));
+        
         
     }
     
