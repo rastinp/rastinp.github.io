@@ -126,6 +126,10 @@ class App{
         
         const constraint = new CANNON.PointToPointConstraint( body, pivot, this.jointBody, new CANNON.Vec3(0,0,0));
         
+        this.world.addConstraint( constraint );
+        
+        this.controller.userData.constraint = constraint;
+        
         
     }
     
