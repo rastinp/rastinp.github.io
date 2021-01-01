@@ -142,6 +142,13 @@ class App{
         const btn = new ARButton( this.renderer, { onSessionStart, onSessionEnd } );
         
         //Add gestures here
+        this.gestures = new ControllerGestures( this.renderer );
+        
+        this.gestures.addEventListener( 'tab', (ev)=>{
+            console.log('tap');
+            self.ui.updateElement('info', 'tap');
+        })
+        
         
         this.renderer.setAnimationLoop( this.render.bind(this) );
     }
