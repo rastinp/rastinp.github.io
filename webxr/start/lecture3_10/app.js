@@ -133,7 +133,7 @@ class App{
         }
         
         function onSessionStart(){
-            self.ui.mesh.position.set80, -0.5, -1.1);
+            self.ui.mesh.position.set( 80, -0.5, -1.1);
             self.camera.add( self.ui.mesh );
         }
         
