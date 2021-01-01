@@ -144,7 +144,7 @@ class App{
         //Add gestures here
         this.gestures = new ControllerGestures( this.renderer );
         
-        this.gestures.addEventListener( 'tab', (ev)=>{
+        this.gestures.addEventListener( 'tap', (ev)=>{
             console.log('tap');
             self.ui.updateElement('info', 'tap');
         })
