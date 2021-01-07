@@ -97,6 +97,26 @@ class App{
 			`${filename}.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
+                self.animations = {};
+                
+                gltf.animations.forEach( anim => {
+                    self.animations[anim.name] = anim;
+                });
+                
+                self.addButtonEvents();
+                
+                self.knight = gltf.scene.children[0];
+                
+                self.mixer = new THREE.AnimationMixer( self.knight );
+                
+                self.scene.add( self.knight );
+                
+                self.oadingBar.visible = false;
+                
+                self.action = "Idle";
+                
+                const scale = 0.01;
+                self.knight.scale.set( scale, scale, scale);
                 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
