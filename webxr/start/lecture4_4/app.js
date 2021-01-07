@@ -105,7 +105,7 @@ class App{
                 
                 self.addButtonEvents();
                 
-                self.knight = gltf.scene.children[0];
+                self.knight = gltf.scene.children[1];
                 
                 self.mixer = new THREE.AnimationMixer( self.knight );
                 
