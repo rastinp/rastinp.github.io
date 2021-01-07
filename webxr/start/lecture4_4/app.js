@@ -111,7 +111,7 @@ class App{
                 
                 self.scene.add( self.knight );
                 
-                self.oadingBar.visible = false;
+                self.loadingBar.visible = false;
                 
                 self.action = "Idle";
                 
