@@ -83,6 +83,30 @@ class App{
         }    
     }
     
+    set action(name){
+		if (this.actionName == name) return;
+		
+		const clip = this.animations[name];
+		
+        if (clip!==undefined){
+			const action = this.mixer.clipAction( clip );
+            
+            if (name=='Die'){
+                action.loop = THREE.LoopOnce;
+                action.clampWhenFinished = true;
+            }
+            
+			this.actionName = name;
+			if (this.curAction) this.curAction.crossFadeTo(action, 0.5);
+            
+            action.enabled = true;
+			action.play();
+            
+            this.curAction = action;
+		}
+	}
+    
+    
     loadGLTF(filename){
         const loader = new GLTFLoader( );
         const dracoLoader = new DRACOLoader();
