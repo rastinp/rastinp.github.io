@@ -53,6 +53,15 @@ class App{
 		this.loadingBar = new LoadingBar();
 		
 		this.loadCollege();
+        
+        const self = this;
+        
+        fetch('./collgege.json')
+            .then( response => response.json() )
+            .then( obj => {
+                self.boardShown = '';
+                self.boardData = obj;
+        })
 	}
 	
     setEnvironment(){
@@ -268,11 +277,32 @@ class App{
     }
     
     createUI(){
+        const config = {
+            panelSize: { height: 0.5 },
+            height: 256,
+            name: { fontSize: 50, height: 70 },
+            info: { position: { top: 70 }, backgroundColor: "#ccc", fontColor: "#000"}
+        }
+        const content = {
+            name: "name",
+            info: "info"
+        }
         
+        this.ui = new CanvasUI( content, config );
+        this.scene.add( this.ui.mesh );
     }
     
     showInfoboard( name, obj, pos ){
+        if (this.ui === undefined ) return;
         
+        this.ui.position.copy(pos).add( this.workingVec3.set( 0, 1.3, 0 ) );
+        const camPos = this.dummyCam.getWorldPosition( this.workingVec3 );
+        this.ui.updateElement( 'name', obj.name );
+        this.ui.updateElement( 'info', obj.info );
+        this.ui.update();
+        this.ui.lookAt( camPos );
+        this.ui.visible = true;
+        this.boardShown = name;
     }
 
 	render( timestamp, frame ){
@@ -280,6 +310,26 @@ class App{
         
         if (this.renderer.xr.isPresenting && this.selectPressed){
             this.moveDolly(dt);
+        }
+        
+        if ( this.boardData ){
+            const scene = this.scene;
+            const dollyPos = this.dolly.getWorldPosition( this.workingVec3 );
+            let boardFound = false;
+            Object.entries(this.boardData).forEach(([name, info]) => {
+                const obj = scene.getObjectByName(name);
+                if (obj!==undefined){
+                    const pos = obj.getWorldPosition( this.workingVec3b );
+                    if (dollyPos.distanceTo(pos)<3){
+                        boardFound = true;
+                        if (this.boardShown!==name) this.showInfoboard(name, info, pos);
+                    }
+                }
+            });
+            if (!boardFound){
+                this.boardShown = '';
+                this.ui.visible = false;
+            }
         }
         
         this.stats.update();

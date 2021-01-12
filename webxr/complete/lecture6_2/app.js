@@ -301,7 +301,7 @@ class App{
         this.ui.updateElement( 'name', obj.name );
         this.ui.updateElement( 'info', obj.info );
         this.ui.update();
-        this.ui.lookAt( camPos )
+        this.ui.lookAt( camPos );
         this.ui.visible = true;
         this.boardShown = name;
     }
