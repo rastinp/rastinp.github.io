@@ -215,6 +215,34 @@ class App{
 		}
 
         //Enter code here
+        dir.set( -1, 0, 0);
+        dir.applyMatrix4( this.dolly.matrix );
+        dir.normalize();
+        this.raycaster.set( pos, dir );
+        intersect = this.raycaster.intersectObject( this.proxy );
+        
+        if ( intersect.length>0 ){
+            if (intersect[0].distance<wallLimit) this.dolly.translateX( wallLimit - intersect[0].distance );
+        }
+        
+        dir.set( 1, 0, 0);
+        dir.applyMatrix4( this.dolly.matrix );
+        dir.normalize();
+        this.raycaster.set( pos, dir );
+        intersect = this.raycaster.intersectObject( this.proxy );
+        
+        if ( intersect.length>0 ){
+            if (intersect[0].distance<wallLimit) this.dolly.translateX( intersect[0].distance - wallLimit );
+        }
+        
+        dir.set(0, -1, 0);
+        pos.y += 1.5;
+        this.raycaster.set( pos, dir );
+         
+        intersect = this.raycaster.intersectObject( this.proxy );
+        if ( intersect.length>0){
+            this.dolly.position.copy( intersect[0].point );
+        }
         
         //Restore the original rotation
         this.dolly.quaternion.copy( quaternion ); 
