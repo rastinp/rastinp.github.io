@@ -212,7 +212,10 @@ class App{
         
         function onSelectStart( ){
             this.userData.selectPressed = true;
-           if (this.userData.marker.visible){
+            if (this.userData.teleport){
+                self.player.object.position.copy( this.userData.teleport.position);
+                self.teleports.forEach( teleport => teleport.fadeOut(0.5));
+            }else if (this.userData.marker.visible){
                 const pos = this.userData.marker.position;
                 console.log( `${pos.x.toFixed(3)}, ${pos.y.toFixed(3)}, ${pos.z.toFixed(3)}`);
             }
