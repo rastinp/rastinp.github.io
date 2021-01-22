@@ -92,16 +92,16 @@ class App{
 	loadCollege(){
         
 		const loader = new GLTFLoader( ).setPath(this.assetsPath);
-        const dracoLoader = new DRACOLoader();
-        dracoLoader.setDecoderPath( '../../libs/three/js/draco/' );
-        loader.setDRACOLoader( dracoLoader );
+        //const dracoLoader = new DRACOLoader();
+        //dracoLoader.setDecoderPath( '../../libs/three/js/draco/' );
+        //loader.setDRACOLoader( dracoLoader );
         
         const self = this;
 		
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-			'DCL.glb',
+			'DCL2.glb',
 			// called when the resource is loaded
 			function ( gltf ) {
 
