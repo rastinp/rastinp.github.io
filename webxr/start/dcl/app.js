@@ -108,7 +108,7 @@ class App{
                 const college = gltf.scene.children[0];
 				self.scene.add( college );
 				
-				college.traverse(function (child) {
+				/*college.traverse(function (child) {
     				if (child.isMesh){
 						if (child.name.indexOf("PROXY")!=-1){
 							child.material.visible = false;
@@ -123,7 +123,7 @@ class App{
                             mat1.dispose();
                         }
 					}
-				});
+				});*/
                        
                 //const door1 = college.getObjectByName("LobbyShop_Door__1_");
                 //const door2 = college.getObjectByName("LobbyShop_Door__2_");
