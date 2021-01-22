@@ -101,14 +101,14 @@ class App{
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-			'DCL2.glb',
+			'college2.glb',
 			// called when the resource is loaded
 			function ( gltf ) {
 
                 const college = gltf.scene.children[0];
 				self.scene.add( college );
 				
-				/*college.traverse(function (child) {
+				college.traverse(function (child) {
     				if (child.isMesh){
 						if (child.name.indexOf("PROXY")!=-1){
 							child.material.visible = false;
@@ -123,15 +123,15 @@ class App{
                             mat1.dispose();
                         }
 					}
-				});*/
+				});
                        
-                //const door1 = college.getObjectByName("LobbyShop_Door__1_");
-                //const door2 = college.getObjectByName("LobbyShop_Door__2_");
-                //const pos = door1.position.clone().sub(door2.position).multiplyScalar(0.5).add(door2.position);
-                //const obj = new THREE.Object3D();
-                //obj.name = "LobbyShop";
-                //obj.position.copy(pos);
-                //college.add( obj );
+                const door1 = college.getObjectByName("LobbyShop_Door__1_");
+                const door2 = college.getObjectByName("LobbyShop_Door__2_");
+                const pos = door1.position.clone().sub(door2.position).multiplyScalar(0.5).add(door2.position);
+                const obj = new THREE.Object3D();
+                obj.name = "LobbyShop";
+                obj.position.copy(pos);
+                college.add( obj );
                 
                 self.loadingBar.visible = false;
 			
