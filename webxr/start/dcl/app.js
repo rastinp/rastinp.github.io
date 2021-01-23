@@ -17,7 +17,7 @@ class App{
 
 		this.assetsPath = '../../assets/';
         
-		this.camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 500 );
+		this.camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 0.01, 500 );
 		this.camera.position.set( 0, 1.6, 0 );
         
         this.dolly = new THREE.Object3D(  );
@@ -29,7 +29,7 @@ class App{
 		this.scene = new THREE.Scene();
         this.scene.add( this.dolly );
         
-		const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.4);
+		const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.2);
 		this.scene.add(ambient);
 			
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
