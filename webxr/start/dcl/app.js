@@ -31,6 +31,9 @@ class App{
         this.camera.add( this.dummyCam );
         
 		this.scene = new THREE.Scene();
+        
+        this.scene.background = new THREE.Color( 0x183693 );
+        
         this.scene.add( this.dolly );
         
         
