@@ -253,7 +253,8 @@ class App{
     moveDolly(dt){
         if (this.proxy === undefined) return;
         
-        const wallLimit = 1.3;
+        //const wallLimit = 1.3;
+        const wallLimit = 0.3;
         const speed = 2;
 		let pos = this.dolly.position.clone();
         pos.y += 1;
