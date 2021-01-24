@@ -18,7 +18,6 @@ class App{
 		this.assetsPath = '../../assets/';
         
 		this.camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 0.01, 500 );
-		//this.camera.position.set( 0, 1.6, 0 );
         this.camera.position.set(0, 1.6, 0 );    
     
         this.dolly = new THREE.Object3D(  );
@@ -116,7 +115,7 @@ class App{
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-			'DCL3.glb',
+			'DCL4.glb',
 			// called when the resource is loaded
 			function ( gltf ) {
 
@@ -253,8 +252,8 @@ class App{
     moveDolly(dt){
         if (this.proxy === undefined) return;
         
-        //const wallLimit = 1.3;
-        const wallLimit = 0.3;
+        const wallLimit = 1.3;
+        //const wallLimit = 0.3;
         const speed = 2;
 		let pos = this.dolly.position.clone();
         pos.y += 1;
@@ -282,7 +281,10 @@ class App{
 		
 		let intersect = this.raycaster.intersectObject(this.proxy);
         if (intersect.length>0){
-            if (intersect[0].distance < wallLimit) blocked = true;
+            if (intersect[0].distance < wallLimit){
+                blocked = true;  
+                console.log("Wallllimit");
+            } 
         }
 		
 		if (!blocked){
