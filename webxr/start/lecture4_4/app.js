@@ -109,9 +109,9 @@ class App{
     
     loadGLTF(filename){
         const loader = new GLTFLoader( );
-        const dracoLoader = new DRACOLoader();
-        dracoLoader.setDecoderPath( '../../libs/three/js/draco/' );
-        loader.setDRACOLoader( dracoLoader );
+        //const dracoLoader = new DRACOLoader();
+        //dracoLoader.setDecoderPath( '../../libs/three/js/draco/' );
+        //loader.setDRACOLoader( dracoLoader );
         
         const self = this;
 		
