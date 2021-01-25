@@ -119,16 +119,16 @@ class App{
 	}		
     
     initScene(){
-        this.loadKnight();
-        
         this.reticle = new THREE.Mesh(
-            new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( -Math.PI/2 ),
-            new THREE.MeshBasicMaterial();
-        )
+            new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
+            new THREE.MeshBasicMaterial()
+        );
         
         this.reticle.matrixAutoUpdate = false;
         this.reticle.visible = false;
         this.scene.add( this.reticle );
+        
+        this.loadKnight();
     }
     
     setupXR(){
