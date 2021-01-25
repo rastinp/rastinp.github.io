@@ -80,6 +80,8 @@ class App{
 			// called when the resource is loaded
 			function ( gltf ) {
 				//const object = gltf.scene.children[5];
+                console.log('Inside load');
+                
                 const object = gltf.scene.children[3];
 				
 				const options = {
