@@ -67,7 +67,7 @@ class App{
     }
     
     initScene(){
-        this.loadGLTF( 'knight' );
+        this.loadGLTF( 'rastin2' );
     }
     
     addButtonEvents(){
