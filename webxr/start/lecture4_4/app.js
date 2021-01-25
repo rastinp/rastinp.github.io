@@ -67,7 +67,7 @@ class App{
     }
     
     initScene(){
-        this.loadGLTF( 'rastin2' );
+        this.loadGLTF( 'rastin5' );
     }
     
     addButtonEvents(){

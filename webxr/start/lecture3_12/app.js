@@ -76,7 +76,7 @@ class App{
 		// Load a GLTF resource
 		loader.load(
 			// resource URL
-			`rastin4.glb`,
+			`rastin5.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				//const object = gltf.scene.children[5];
