@@ -89,7 +89,7 @@ class App{
                     animations: gltf.animations,
 					clip: gltf.animations[0],
 					app: self,
-					name: 'rastin',
+					name: 'knight',
 					npc: false
 				};
 				
@@ -101,7 +101,7 @@ class App{
 				self.knight.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
-                self.renderer.setAnimationLoop( self.render.bind(self) );
+                self.renderer.setAnimationLoop( self.render.bind(self) );//(timestamp, frame) => { self.render(timestamp, frame); } );
 			},
 			// called while loading is progressing
 			function ( xhr ) {
