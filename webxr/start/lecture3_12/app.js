@@ -82,7 +82,7 @@ class App{
 				//const object = gltf.scene.children[5];
                 console.log('Inside load');
                 
-                const object = gltf.scene.children[3];
+                const object = gltf.scene.children[2];
 				
 				const options = {
 					object: object,
