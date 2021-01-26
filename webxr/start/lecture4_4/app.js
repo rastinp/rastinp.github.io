@@ -77,7 +77,7 @@ class App{
             self.action = this.innerHTML;    
         }
         
-        for(let i=1; i<=4; i++){
+        for(let i=1; i<=5; i++){
             const btn = document.getElementById(`btn${i}`);
             btn.addEventListener( 'click', onClick );
         }    
