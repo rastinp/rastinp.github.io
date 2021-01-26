@@ -139,7 +139,7 @@ class App{
                 
                 self.action = "Idle";
                 
-                const scale = 0.01;
+                const scale = 0.005;
                 self.knight.scale.set( scale, scale, scale);
                 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
