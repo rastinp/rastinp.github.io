@@ -1,6 +1,6 @@
 import * as THREE from '../../libs/three/three.module.js';
 import { GLTFLoader } from '../../libs/three/jsm/GLTFLoader.js';
-import { DRACOLoader } from '../../libs/three/jsm/DRACOLoader.js';
+//import { DRACOLoader } from '../../libs/three/jsm/DRACOLoader.js';
 import { RGBELoader } from '../../libs/three/jsm/RGBELoader.js';
 import { LoadingBar } from '../../libs/LoadingBar.js';
 import { Stats } from '../../libs/stats.module.js';
@@ -77,7 +77,7 @@ class App{
             self.action = this.innerHTML;    
         }
         
-        for(let i=1; i<=4; i++){
+        for(let i=1; i<=5; i++){
             const btn = document.getElementById(`btn${i}`);
             btn.addEventListener( 'click', onClick );
         }    
