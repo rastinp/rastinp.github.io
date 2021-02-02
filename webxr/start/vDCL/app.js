@@ -113,25 +113,25 @@ class App{
 						if (child.name.indexOf("PROXY")!=-1){
 							child.material.visible = false;
 							self.proxy = child;
-						}else if (child.material.name.indexOf('Glass')!=-1){
-                            child.material.opacity = 0.1;
-                            child.material.transparent = true;
-                        }else if (child.material.name.indexOf("SkyBox")!=-1){
-                            const mat1 = child.material;
-                            const mat2 = new THREE.MeshBasicMaterial({map: mat1.map});
-                            child.material = mat2;
-                            mat1.dispose();
+						//}else if (child.material.name.indexOf('Glass')!=-1){
+                        //    child.material.opacity = 0.1;
+                        //    child.material.transparent = true;
+                        //}else if (child.material.name.indexOf("SkyBox")!=-1){
+                        //    const mat1 = child.material;
+                        //    const mat2 = new THREE.MeshBasicMaterial({map: mat1.map});
+                        //    child.material = mat2;
+                        //    mat1.dispose();
                         }
 					}
 				});
                        
-                const door1 = college.getObjectByName("LobbyShop_Door__1_");
-                const door2 = college.getObjectByName("LobbyShop_Door__2_");
-                const pos = door1.position.clone().sub(door2.position).multiplyScalar(0.5).add(door2.position);
-                const obj = new THREE.Object3D();
-                obj.name = "LobbyShop";
-                obj.position.copy(pos);
-                college.add( obj );
+                //const door1 = college.getObjectByName("LobbyShop_Door__1_");
+                //const door2 = college.getObjectByName("LobbyShop_Door__2_");
+                //const pos = door1.position.clone().sub(door2.position).multiplyScalar(0.5).add(door2.position);
+                //const obj = new THREE.Object3D();
+                //obj.name = "LobbyShop";
+                //obj.position.copy(pos);
+                //college.add( obj );
                 
                 self.loadingBar.visible = false;
 			
