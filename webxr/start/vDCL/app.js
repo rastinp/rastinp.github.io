@@ -27,17 +27,19 @@ class App{
         this.camera.add( this.dummyCam );
         
 		this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color( 0x505050 );
+        this.scene.background = new THREE.Color( 0x183693 );
         this.scene.add( this.dolly );
         
 		//const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.8);
 		//this.scene.add(ambient);
         
-        this.scene.add( new THREE.HemisphereLight( 0x606060, 0x404040 ) );
-
-        const light = new THREE.DirectionalLight( 0xffffff );
-        light.position.set( 1, 1, 1 ).normalize();
-		this.scene.add( light );
+        tthis.scene.add( new THREE.AmbientLight( 0x666666, 0.5 ) );
+        // add spotlight to create some nice shadows
+        var spotLight = new THREE.SpotLight( 0xffa95c, 4);
+        spotLight.position.set( 0.0, 4.0, 2.1 );
+        spotLight.angle = 1.2;
+        spotLight.target.position.set( 1.82, 0, -2.1 );
+        this.scene.add(spotLight.target);
 			
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
 		this.renderer.setPixelRatio( window.devicePixelRatio );
@@ -120,14 +122,14 @@ class App{
 						if (child.name.indexOf("PROXY")!=-1){
 							child.material.visible = false;
 							self.proxy = child;
-						//}else if (child.material.name.indexOf('Glass')!=-1){
-                        //    child.material.opacity = 0.1;
-                        //    child.material.transparent = true;
-                        //}else if (child.material.name.indexOf("SkyBox")!=-1){
-                        //    const mat1 = child.material;
-                        //    const mat2 = new THREE.MeshBasicMaterial({map: mat1.map});
-                        //    child.material = mat2;
-                        //    mat1.dispose();
+						}else if (child.material.name.indexOf('Glass')!=-1){
+                            child.material.opacity = 0.1;
+                            child.material.transparent = true;
+                        }else if (child.material.name.indexOf("SkyBox")!=-1){
+                            const mat1 = child.material;
+                            const mat2 = new THREE.MeshBasicMaterial({map: mat1.map});
+                            child.material = mat2;
+                            mat1.dispose();
                         }
 					}
 				});
