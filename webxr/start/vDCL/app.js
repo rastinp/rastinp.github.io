@@ -33,7 +33,7 @@ class App{
 		//const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.8);
 		//this.scene.add(ambient);
         
-        tthis.scene.add( new THREE.AmbientLight( 0x666666, 0.5 ) );
+        this.scene.add( new THREE.AmbientLight( 0x666666, 0.5 ) );
         // add spotlight to create some nice shadows
         var spotLight = new THREE.SpotLight( 0xffa95c, 4);
         spotLight.position.set( 0.0, 4.0, 2.1 );
