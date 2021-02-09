@@ -40,7 +40,25 @@ class App{
         spotLight.angle = 1.2;
         spotLight.target.position.set( 1.82, 0, -2.1 );
         this.scene.add(spotLight.target);
-			
+		
+        // Load Welcome Wall
+	    var loader = new GLTFLoader().setPath(this.assetsPath);
+	    loader.load( 'welcomeWall.gltf', function ( gltf ) {
+		  gltf.scene.position.x = -1.5;
+		  gltf.scene.position.z = -3.2;
+		
+        gltf.scene.traverse(n => {
+			 if(n.isMesh){
+				    n.castShadow = true;
+				    n.receiveShadow = true;
+				    if(n.material.map) n.material.map.anisotropy = 16;
+                }
+        });
+		
+		  scene.add( gltf.scene );
+	   } );
+        
+        
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
 		this.renderer.setPixelRatio( window.devicePixelRatio );
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
