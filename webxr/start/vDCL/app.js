@@ -43,11 +43,11 @@ class App{
 		
         // Load Welcome Wall
 	    var loader = new GLTFLoader().setPath(this.assetsPath);
-	    this.loader.load( 'welcomeWall.gltf', function ( gltf ) {
-		this.gltf.scene.position.x = -1.5;
-        this.gltf.scene.position.z = -3.2;
+	    loader.load( 'welcomeWall.gltf', function ( gltf ) {
+		gltf.scene.position.x = -1.5;
+        gltf.scene.position.z = -3.2;
 		
-        this.gltf.scene.traverse(n => {
+        gltf.scene.traverse(n => {
 			 if(n.isMesh){
 				    n.castShadow = true;
 				    n.receiveShadow = true;
