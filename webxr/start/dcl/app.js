@@ -115,7 +115,7 @@ class App{
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-			'DCL_collisions2.glb',
+			'DCL3.glb',
 			// called when the resource is loaded
 			function ( gltf ) {
 
