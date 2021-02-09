@@ -35,11 +35,11 @@ class App{
         
         this.scene.add( new THREE.AmbientLight( 0x666666, 0.5 ) );
         // add spotlight to create some nice shadows
-        var spotLight = new THREE.SpotLight( 0xffa95c, 4);
-        spotLight.position.set( 0.0, 4.0, 2.1 );
-        spotLight.angle = 1.2;
-        spotLight.target.position.set( 1.82, 0, -2.1 );
-        this.scene.add(spotLight.target);
+        //var spotLight = new THREE.SpotLight( 0xffa95c, 4);
+        //spotLight.position.set( 0.0, 4.0, 2.1 );
+        //spotLight.angle = 1.2;
+        //spotLight.target.position.set( 1.82, 0, -2.1 );
+        //this.scene.add(spotLight.target);
 		
         // Load Welcome Wall
 	    var loader = new GLTFLoader().setPath(this.assetsPath);
