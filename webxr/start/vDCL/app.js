@@ -101,9 +101,9 @@ class App{
 	loadCollege(){
         
 		const loader = new GLTFLoader( ).setPath(this.assetsPath);
-        //const dracoLoader = new DRACOLoader();
-        //dracoLoader.setDecoderPath( '../../libs/three/js/draco/' );
-        //loader.setDRACOLoader( dracoLoader );
+        const dracoLoader = new DRACOLoader();
+        dracoLoader.setDecoderPath( '../../libs/three/js/draco/' );
+        loader.setDRACOLoader( dracoLoader );
         
         const self = this;
 		
