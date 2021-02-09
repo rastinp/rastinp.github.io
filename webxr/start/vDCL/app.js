@@ -55,7 +55,7 @@ class App{
                 }
         });
 		
-		  this.scene.add( gltf.scene );
+		  this.scene.add( this.gltf.scene );
 	   } );
         
         
