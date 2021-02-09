@@ -36,18 +36,18 @@ class App{
         this.scene.add( new THREE.AmbientLight( 0x666666, 0.5 ) );
         // add spotlight to create some nice shadows
         var spotLight = new THREE.SpotLight( 0xffa95c, 4);
-        spotLight.position.set( 0.0, 4.0, 2.1 );
-        spotLight.angle = 1.2;
-        spotLight.target.position.set( 1.82, 0, -2.1 );
+        this.spotLight.position.set( 0.0, 4.0, 2.1 );
+        this.spotLight.angle = 1.2;
+        this.spotLight.target.position.set( 1.82, 0, -2.1 );
         this.scene.add(spotLight.target);
 		
         // Load Welcome Wall
 	    var loader = new GLTFLoader().setPath(this.assetsPath);
-	    loader.load( 'welcomeWall.gltf', function ( gltf ) {
-		  gltf.scene.position.x = -1.5;
-		  gltf.scene.position.z = -3.2;
+	    this.loader.load( 'welcomeWall.gltf', function ( gltf ) {
+		this.gltf.scene.position.x = -1.5;
+        this.gltf.scene.position.z = -3.2;
 		
-        gltf.scene.traverse(n => {
+        this.gltf.scene.traverse(n => {
 			 if(n.isMesh){
 				    n.castShadow = true;
 				    n.receiveShadow = true;
@@ -55,7 +55,7 @@ class App{
                 }
         });
 		
-		  scene.add( gltf.scene );
+		  this.scene.add( gltf.scene );
 	   } );
         
         
