@@ -99,7 +99,7 @@ class App{
 				
 				self.rastin.action = 'Dance';
 				
-                self.rastin.object.rotation.x = - Math.PI / 2;
+                self.rastin.object.rotation.x = Math.PI / 2;
                 const scale = 0.005;
 				self.rastin.object.scale.set(scale, scale, scale); 
 				
