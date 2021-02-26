@@ -76,7 +76,7 @@ class App{
 		// Load a GLTF resource
 		loader.load(
 			// resource URL
-			`rastin_1.glb`,
+			`rastin_2.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				const object = gltf.scene.children[3];
@@ -93,14 +93,16 @@ class App{
 					npc: false
 				};
 				
+                self.object.rotation.x = Math.PI / 2;
+                
 				self.rastin = new Player(options);
                 
                 self.rastin.object.visible = false;
 				
 				self.rastin.action = 'Dance';
 				
-                self.rastin.object.rotation.x = Math.PI / 2;
-                const scale = 0.005;
+                //self.rastin.object.rotation.x = Math.PI / 2;
+                const scale = 0.002;
 				self.rastin.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
