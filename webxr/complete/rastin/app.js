@@ -94,11 +94,13 @@ class App{
 				};
 				
 				self.rastin = new Player(options);
-                self.rastin.rotation.x = - Math.PI / 2;
+                
                 self.rastin.object.visible = false;
 				
 				self.rastin.action = 'Dance';
-				const scale = 0.005;
+				
+                self.rastin.object.rotation.x = - Math.PI / 2;
+                const scale = 0.005;
 				self.rastin.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
