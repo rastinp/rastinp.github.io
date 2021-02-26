@@ -79,7 +79,7 @@ class App{
 			`rastin_anim.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
-				const object = gltf.scene.children[5];
+				const object = gltf.scene.children[3];
 				
 				const options = {
 					object: object,
