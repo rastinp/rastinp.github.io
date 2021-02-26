@@ -94,6 +94,7 @@ class App{
 				};
 				
 				self.rastin = new Player(options);
+                self.rastin.rotation.x = - Math.PI / 2;
                 self.rastin.object.visible = false;
 				
 				self.rastin.action = 'Dance';
