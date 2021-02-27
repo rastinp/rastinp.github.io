@@ -81,7 +81,7 @@ class App{
 			function ( gltf ) {
 				const object = gltf.scene.children[3];
 				
-                object.rotation.x = - Math.PI / 2;
+                object.rotation.x = Math.PI;
                 
 				const options = {
 					object: object,
