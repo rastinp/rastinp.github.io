@@ -81,6 +81,8 @@ class App{
 			function ( gltf ) {
 				const object = gltf.scene.children[3];
 				
+                object.rotation.x = - Math.PI / 2;
+                
 				const options = {
 					object: object,
 					speed: 0.5,
@@ -101,7 +103,7 @@ class App{
 				
 				self.rastin.action = 'Dance';
 				
-                self.rastin.object.rotation.x = Math.PI / 2;
+                //self.rastin.object.rotation.x = - Math.PI / 2;
                 const scale = 0.002;
 				self.rastin.object.scale.set(scale, scale, scale); 
 				
