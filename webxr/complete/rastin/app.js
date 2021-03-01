@@ -21,11 +21,11 @@ class App{
         
 		this.scene = new THREE.Scene();
 
-		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.6);
+		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.2);
         ambient.position.set( 0.5, 1, 0.25 );
 		this.scene.add(ambient);
         
-        const light = new THREE.DirectionalLight();
+        const light = new THREE.DirectionalLight(0xffffff, 0.5);
         light.position.set( 0.2, 1, 1);
         this.scene.add(light);
 			
