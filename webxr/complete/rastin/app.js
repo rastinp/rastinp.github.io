@@ -79,7 +79,8 @@ class App{
 			`rastin_8.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
-				const object = gltf.scene.children[3];
+				//const object = gltf.scene.children[3];
+                const object = gltf.scene.children[2];
 				
                 //object.rotation.x = Math.PI;
                 
